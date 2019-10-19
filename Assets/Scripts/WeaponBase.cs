@@ -16,21 +16,30 @@ public class WeaponBase : MonoBehaviour
     [Header("Sound References")]
     public AudioClip FireSound;
     public AudioClip DryFireSound;
+    public AudioClip DrawSound;
+    public AudioClip MagOutSound;
+    public AudioClip MagInSound;
+    public AudioClip BoltSound;
 
     [Header("Weapon Attributes")]
     public FireMode FireMode = FireMode.FullAuto;
     public float Damage = 20f;
     public float FireRate = 1.0f;
-    public int BulletsLeft = 100;
-    public int BulletsInClip = 12;
+    public int BulletsLeft;
+    public int BulletsInClip;
+    public int ClipSize = 12;
+    public int MaxAmmo = 100;
 
     void Start()
     {
-         audioSource = GetComponent<AudioSource>();   
-         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();   
+        animator = GetComponent<Animator>();
 
-         // Wait until weapon can fire (draw animation)
-         Invoke("EnableWeapon", 1f);
+        BulletsInClip = ClipSize;
+        BulletsLeft = MaxAmmo;
+
+        // Wait until weapon can fire (draw animation)
+        Invoke("EnableWeapon", 1f);
     }
 
     void EnableWeapon()
@@ -48,6 +57,11 @@ public class WeaponBase : MonoBehaviour
         {
             CheckFire();
         }
+
+        if(Input.GetButtonDown("Reload"))
+        {
+            CheckReload();
+        }
     }
 
     private void CheckFire()
@@ -57,15 +71,87 @@ public class WeaponBase : MonoBehaviour
             return;
         }
 
+        if(BulletsInClip > 0)
+        {
+            Fire();
+        }
+        else
+        {
+            DryFire();
+        }
+    }
+
+    void Fire()
+    {
         audioSource.PlayOneShot(FireSound);
         fireLock = true;
 
         MuzzleFlash.Stop();
         MuzzleFlash.Play();
 
-        animator.CrossFadeInFixedTime("Fire", 0.1f);
+        if(BulletsInClip > 1)
+        {
+            animator.CrossFadeInFixedTime("Fire", 0.1f);
+        }
+        else
+        {
+            animator.CrossFadeInFixedTime("FireLast", 0.1f);
+        }
+
+        BulletsInClip--;
 
         StartCoroutine(ResetFireLock());
+    }
+
+    void DryFire()
+    {
+        audioSource.PlayOneShot(DryFireSound);
+        fireLock = true;
+
+        StartCoroutine(ResetFireLock());
+    }
+
+    void CheckReload()
+    {
+        if(BulletsLeft > 0 && BulletsInClip < ClipSize)
+        {
+            Reload();
+        }
+    }
+
+    private void Reload()
+    {
+        animator.CrossFadeInFixedTime("Reload", 0.1f);
+    }
+
+    void ReloadAmmo()
+    {
+        int bulletsToLoad = ClipSize - BulletsInClip;
+        int bulletsToSubtract = (BulletsLeft >= bulletsToLoad) ? bulletsToLoad : BulletsLeft;
+
+        BulletsLeft -= bulletsToSubtract;
+        BulletsInClip += bulletsToLoad;
+    }
+
+    public void OnDraw()
+    {
+        audioSource.PlayOneShot(DrawSound);
+    }
+
+    public void OnMagOut()
+    {
+        audioSource.PlayOneShot(MagOutSound);
+    }
+
+    public void OnMagIn()
+    {
+        ReloadAmmo();
+        audioSource.PlayOneShot(MagInSound);
+    }
+
+    public void OnBoltForwarded()
+    {
+        audioSource.PlayOneShot(BoltSound);
     }
 
     IEnumerator ResetFireLock()

@@ -9,6 +9,7 @@ public class WeaponBase : MonoBehaviour
     protected Animator animator;
     protected bool fireLock = false;
     protected bool canShoot = false;
+    protected bool isReloading = false;
 
     [Header("Object References")]
     public ParticleSystem MuzzleFlash;
@@ -66,7 +67,7 @@ public class WeaponBase : MonoBehaviour
 
     private void CheckFire()
     {
-        if(!canShoot || fireLock)
+        if(!canShoot || isReloading || fireLock)
         {
             return;
         }
@@ -119,6 +120,12 @@ public class WeaponBase : MonoBehaviour
 
     private void Reload()
     {
+        if(isReloading)
+        {
+            return;
+        }
+        
+        isReloading = true;
         animator.CrossFadeInFixedTime("Reload", 0.1f);
     }
 
@@ -128,7 +135,7 @@ public class WeaponBase : MonoBehaviour
         int bulletsToSubtract = (BulletsLeft >= bulletsToLoad) ? bulletsToLoad : BulletsLeft;
 
         BulletsLeft -= bulletsToSubtract;
-        BulletsInClip += bulletsToLoad;
+        BulletsInClip += bulletsToSubtract;
     }
 
     public void OnDraw()
@@ -150,6 +157,12 @@ public class WeaponBase : MonoBehaviour
     public void OnBoltForwarded()
     {
         audioSource.PlayOneShot(BoltSound);
+        Invoke("ResetIsReloading", 1f);
+    }
+
+    void ResetIsReloading()
+    {
+        isReloading = false;
     }
 
     IEnumerator ResetFireLock()

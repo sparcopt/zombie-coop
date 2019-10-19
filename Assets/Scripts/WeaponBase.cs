@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
-    private AudioSource audioSource;
-    private Animator animator;
-    private bool fireLock = false;
-    private bool canShoot = false;
+    protected AudioSource audioSource;
+    protected Animator animator;
+    protected bool fireLock = false;
+    protected bool canShoot = false;
 
     [Header("Object References")]
     public ParticleSystem MuzzleFlash;
@@ -89,18 +89,16 @@ public class WeaponBase : MonoBehaviour
         MuzzleFlash.Stop();
         MuzzleFlash.Play();
 
-        if(BulletsInClip > 1)
-        {
-            animator.CrossFadeInFixedTime("Fire", 0.1f);
-        }
-        else
-        {
-            animator.CrossFadeInFixedTime("FireLast", 0.1f);
-        }
+        PlayFireAnimation();
 
         BulletsInClip--;
 
         StartCoroutine(ResetFireLock());
+    }
+
+    public virtual void PlayFireAnimation()
+    {
+        animator.CrossFadeInFixedTime("Fire", 0.1f);
     }
 
     void DryFire()

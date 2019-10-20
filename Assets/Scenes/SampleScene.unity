@@ -5089,6 +5089,20 @@ MonoBehaviour:
   Amount: 0.1
   MaxAmount: 0.3
   SmoothAmount: 2
+--- !u!114 &1822798704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822798699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16d8d1122093da45834f75f49a8fcba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobbingSpeed: 0.1
+  bobbingAmount: 0.1
 --- !u!1 &1838923032
 GameObject:
   m_ObjectHideFlags: 0
@@ -5136,6 +5150,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 790093772}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1908400344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908400342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16d8d1122093da45834f75f49a8fcba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobbingSpeed: 0.1
+  bobbingAmount: 0.1
 --- !u!114 &1908400345
 MonoBehaviour:
   m_ObjectHideFlags: 0

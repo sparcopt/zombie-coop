@@ -13,6 +13,7 @@ public class WeaponBase : MonoBehaviour
 
     [Header("Object References")]
     public ParticleSystem MuzzleFlash;
+    public Transform ShootPoint;
 
     [Header("Sound References")]
     public AudioClip FireSound;
@@ -87,6 +88,8 @@ public class WeaponBase : MonoBehaviour
         audioSource.PlayOneShot(FireSound);
         fireLock = true;
 
+        DetectHit();
+
         MuzzleFlash.Stop();
         MuzzleFlash.Play();
 
@@ -95,6 +98,28 @@ public class WeaponBase : MonoBehaviour
         BulletsInClip--;
 
         StartCoroutine(ResetFireLock());
+    }
+
+    private void DetectHit()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(ShootPoint.position, ShootPoint.forward, out hit))
+        {
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                var health = hit.transform.GetComponent<Health>();
+
+                if (health == null)
+                {
+                    throw new Exception("Cannot find health component on enemy");
+                }
+                else
+                {
+                    health.TakeDamage(Damage);
+                }
+            }
+        }
     }
 
     public virtual void PlayFireAnimation()

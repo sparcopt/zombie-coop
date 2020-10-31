@@ -31,6 +31,7 @@ public class WeaponBase : MonoBehaviour
     public int BulletsInClip;
     public int ClipSize = 12;
     public int MaxAmmo = 100;
+    public GameObject BloodPrefab;
 
     void Start()
     {
@@ -108,23 +109,23 @@ public class WeaponBase : MonoBehaviour
         {
             if (hit.transform.CompareTag("Enemy"))
             {
-                var health = hit.transform.GetComponent<Health>(); //todo: should be placed inside enemy.TakeDamage()
-                var enemy = hit.transform.GetComponent<Enemy>();
+                var health = hit.transform.GetComponent<Health>();
 
                 if (health == null)
                 {
                     throw new Exception("Cannot find health component on enemy");
                 }
 
-                if (enemy == null)
-                {
-                    throw new Exception("Cannot find enemy component on enemy");
-                }
-
                 health.TakeDamage(Damage);
-                enemy.CreateBlood(hit.point, hit.transform.rotation);
+                CreateBlood(hit.point, hit.transform.rotation);
             }
         }
+    }
+
+    public void CreateBlood(Vector3 position, Quaternion rotation)
+    {
+        var blood = Instantiate(BloodPrefab, position, rotation);
+        Destroy(blood, 1f);
     }
 
     public virtual void PlayFireAnimation()

@@ -5,19 +5,19 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float HealthValue = 100f;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public Health ParentRef;
+    public float DamageMultiplier = 1.0f;
 
     public void TakeDamage(float damage)
     {
+        damage *= DamageMultiplier;
+
+        if(ParentRef != null)
+        {
+            ParentRef.TakeDamage(damage);
+            return;
+        }
+
         HealthValue -= damage;
 
         if (HealthValue < 0)

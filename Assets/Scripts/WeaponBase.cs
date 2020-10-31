@@ -108,16 +108,21 @@ public class WeaponBase : MonoBehaviour
         {
             if (hit.transform.CompareTag("Enemy"))
             {
-                var health = hit.transform.GetComponent<Health>();
+                var health = hit.transform.GetComponent<Health>(); //todo: should be placed inside enemy.TakeDamage()
+                var enemy = hit.transform.GetComponent<Enemy>();
 
                 if (health == null)
                 {
                     throw new Exception("Cannot find health component on enemy");
                 }
-                else
+
+                if (enemy == null)
                 {
-                    health.TakeDamage(Damage);
+                    throw new Exception("Cannot find enemy component on enemy");
                 }
+
+                health.TakeDamage(Damage);
+                enemy.CreateBlood(hit.point, hit.transform.rotation);
             }
         }
     }

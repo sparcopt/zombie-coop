@@ -2569,6 +2569,8 @@ MonoBehaviour:
   Speed: 1
   AngularSpeed: 120
   Damage: 20
+  BloodPrefab: {fileID: 4763994251969622687, guid: d66e310aafa35554296ca24a2a32741b,
+    type: 3}
 --- !u!195 &6269498953770166033
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public float Speed = 1.0f;
     public float AngularSpeed = 120;
     public float Damage = 20;
+    public GameObject BloodPrefab;
 
     void Start()
     {
@@ -111,5 +112,11 @@ public class Enemy : MonoBehaviour
             animator.CrossFadeInFixedTime("Death", 0.1f);
             Destroy(gameObject, 3f);
         }
+    }
+
+    public void CreateBlood(Vector3 position, Quaternion rotation)
+    {
+        var blood = Instantiate(BloodPrefab, position, rotation);
+        Destroy(blood, 1f);
     }
 }

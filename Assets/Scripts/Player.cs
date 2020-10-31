@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Animator deathAnimator;
     [HideInInspector]
-    private bool isDead;
+    public bool IsDead;
 
     void Start()
     {
@@ -24,14 +24,14 @@ public class Player : MonoBehaviour
 
     private void CheckHealth()
     {
-        if (isDead)
+        if (IsDead)
         {
             return;
         }
 
         if (health.HealthValue <= 0)
         {
-            isDead = true;
+            IsDead = true;
 
             deathAnimator.SetTrigger("Show");
 

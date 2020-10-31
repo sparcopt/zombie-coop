@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private Health health;
     private Animator animator;
     private Collider collider;
+    private Health targetHealth;
+    private Player player;
     [HideInInspector]
     private bool isAttacking;
     [HideInInspector]
@@ -23,6 +25,19 @@ public class Enemy : MonoBehaviour
     {
         // TODO: this is heavy, look for a way of caching this
         target = GameObject.Find("Player");
+        targetHealth = target.GetComponent<Health>();
+
+        if (targetHealth == null)
+        {
+            throw new Exception("Target doesn't have health component");
+        }
+
+        player = target.GetComponent<Player>();
+        if (player == null)
+        {
+            throw new Exception("Target doesn't have player component");
+        }
+
         agent = GetComponent<NavMeshAgent>();   
         health = GetComponent<Health>();
         animator = GetComponent<Animator>();
@@ -38,7 +53,7 @@ public class Enemy : MonoBehaviour
 
     private void CheckAttack()
     {
-        if (isDead || isAttacking)
+        if (isDead || isAttacking || player.IsDead)
         {
             return;
         }
@@ -53,13 +68,6 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        var targetHealth = target.GetComponent<Health>();
-
-        if (targetHealth == null)
-        {
-            throw new Exception("Target doesn't have health component");
-        }
-
         targetHealth.TakeDamage(Damage);
 
         agent.speed = 0;
@@ -79,7 +87,7 @@ public class Enemy : MonoBehaviour
 
     private void Chase()
     {
-        if (isDead)
+        if (isDead || player.IsDead)
         {
             return;
         }

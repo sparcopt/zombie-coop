@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public float Speed = 1.0f;
     public float AngularSpeed = 120;
     public float Damage = 20;
+    public float AttackAngle = 45f;
 
     void Start()
     {
@@ -62,7 +63,13 @@ public class Enemy : MonoBehaviour
 
         if (distanceFromTarget <= 1.8f)
         {
-            Attack();
+            var directionToTarget = target.transform.position - transform.position;
+            var angle = Vector3.Angle(directionToTarget, transform.forward);
+
+            if(angle <= AttackAngle)
+            {
+                Attack();
+            }  
         }
     }
 

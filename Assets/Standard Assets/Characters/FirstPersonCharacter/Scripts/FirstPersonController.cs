@@ -10,6 +10,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        public MouseLook MouseLook => m_MouseLook;
+
         public CharacterController Controller
         {
             get { return m_CharacterController; }

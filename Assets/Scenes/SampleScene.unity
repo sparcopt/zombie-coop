@@ -5603,6 +5603,7 @@ MonoBehaviour:
   BloodPrefab: {fileID: 4763994251969622687, guid: d66e310aafa35554296ca24a2a32741b,
     type: 3}
   Spread: 0.5
+  Recoil: 0.2
 --- !u!82 &1822798702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5871,6 +5872,7 @@ MonoBehaviour:
   BloodPrefab: {fileID: 4763994251969622687, guid: d66e310aafa35554296ca24a2a32741b,
     type: 3}
   Spread: 0.6
+  Recoil: 0.3
 --- !u!82 &1908400346
 AudioSource:
   m_ObjectHideFlags: 0

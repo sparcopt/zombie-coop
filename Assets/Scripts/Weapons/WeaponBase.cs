@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public abstract class WeaponBase : MonoBehaviour
 {
     protected AudioSource audioSource;
     protected Animator animator;
+    protected FirstPersonController controller;
     protected bool fireLock = false;
     protected bool canShoot = false;
     protected bool isReloading = false;
@@ -39,9 +41,11 @@ public abstract class WeaponBase : MonoBehaviour
     public int MaxAmmo = 100;
     public GameObject BloodPrefab;
     public float Spread = 0.7f;
+    public float Recoil = 0.5f;
 
     void Start()
     {
+        controller = GameObject.Find("Player").GetComponent<FirstPersonController>();
         audioSource = GetComponent<AudioSource>();   
         animator = GetComponent<Animator>();
 
@@ -107,6 +111,7 @@ public abstract class WeaponBase : MonoBehaviour
         fireLock = true;
 
         DetectHit();
+        DoRecoil();
 
         MuzzleFlash.Stop();
         MuzzleFlash.Play();
@@ -117,6 +122,11 @@ public abstract class WeaponBase : MonoBehaviour
         UpdateTexts();
 
         StartCoroutine(ResetFireLock());
+    }
+
+    private void DoRecoil()
+    {
+        controller.MouseLook.Recoil(Recoil);
     }
 
     private void DetectHit()

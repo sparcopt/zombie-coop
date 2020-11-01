@@ -92,6 +92,12 @@ public abstract class WeaponBase : MonoBehaviour
         }
     }
 
+    public void Select()
+    {
+        isReloading = false;
+        UpdateTexts();
+    }
+
     private void CheckFire()
     {
         if(!canShoot || isReloading || fireLock)

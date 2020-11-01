@@ -15,6 +15,7 @@ public abstract class WeaponBase : MonoBehaviour
     [Header("Object References")]
     public ParticleSystem MuzzleFlash;
     public Transform ShootPoint;
+    public GameObject SparkPrefab;
 
     [Header("Sound References")]
     public AudioClip FireSound;
@@ -37,6 +38,7 @@ public abstract class WeaponBase : MonoBehaviour
     public int ClipSize = 12;
     public int MaxAmmo = 100;
     public GameObject BloodPrefab;
+    public float Spread = 0.7f;
 
     void Start()
     {
@@ -121,7 +123,7 @@ public abstract class WeaponBase : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(ShootPoint.position, ShootPoint.forward, out hit))
+        if (Physics.Raycast(ShootPoint.position, CalculateSpread(Spread, ShootPoint), out hit))
         {
             if (hit.transform.CompareTag("Enemy"))
             {
@@ -135,7 +137,17 @@ public abstract class WeaponBase : MonoBehaviour
                 health.TakeDamage(Damage);
                 CreateBlood(hit.point, hit.transform.rotation);
             }
+            else
+            {
+                var spark = Instantiate(SparkPrefab, hit.point, hit.transform.rotation);
+                Destroy(spark, 1);
+            }
         }
+    }
+
+    private Vector3 CalculateSpread(float spread, Transform shootPoint)
+    {
+        return Vector3.Lerp(shootPoint.TransformDirection(Vector3.forward * 100), UnityEngine.Random.onUnitSphere, spread);
     }
 
     public void CreateBlood(Vector3 position, Quaternion rotation)

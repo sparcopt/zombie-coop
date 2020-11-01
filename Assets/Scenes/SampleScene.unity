@@ -5583,6 +5583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MuzzleFlash: {fileID: 474012989}
   ShootPoint: {fileID: 599951158}
+  SparkPrefab: {fileID: 418998784581524774, guid: ff9da5850ccf5794784ebe70ab2733bc,
+    type: 3}
   FireSound: {fileID: 8300000, guid: 4ba9bafda0e84cf4e8e2012ae9a60e56, type: 3}
   DryFireSound: {fileID: 8300000, guid: 678e850f1ee5e5946b54d35863c38e55, type: 3}
   DrawSound: {fileID: 8300000, guid: d0970c5f59abe8344bb56c7fc8f2f107, type: 3}
@@ -5600,6 +5602,7 @@ MonoBehaviour:
   MaxAmmo: 100
   BloodPrefab: {fileID: 4763994251969622687, guid: d66e310aafa35554296ca24a2a32741b,
     type: 3}
+  Spread: 0.5
 --- !u!82 &1822798702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5848,6 +5851,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MuzzleFlash: {fileID: 723277431}
   ShootPoint: {fileID: 599951158}
+  SparkPrefab: {fileID: 418998784581524774, guid: ff9da5850ccf5794784ebe70ab2733bc,
+    type: 3}
   FireSound: {fileID: 8300000, guid: 7e1172b166b6e064185d584cb2f171c9, type: 3}
   DryFireSound: {fileID: 8300000, guid: 678e850f1ee5e5946b54d35863c38e55, type: 3}
   DrawSound: {fileID: 0}
@@ -5865,6 +5870,7 @@ MonoBehaviour:
   MaxAmmo: 36
   BloodPrefab: {fileID: 4763994251969622687, guid: d66e310aafa35554296ca24a2a32741b,
     type: 3}
+  Spread: 0.6
 --- !u!82 &1908400346
 AudioSource:
   m_ObjectHideFlags: 0

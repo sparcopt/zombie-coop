@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WeaponBase : MonoBehaviour
+public abstract class WeaponBase : MonoBehaviour
 {
     protected AudioSource audioSource;
     protected Animator animator;
@@ -22,6 +23,10 @@ public class WeaponBase : MonoBehaviour
     public AudioClip MagOutSound;
     public AudioClip MagInSound;
     public AudioClip BoltSound;
+
+    [Header("UI References")]
+    public Text WeaponNameText;
+    public Text AmmoText;
 
     [Header("Weapon Attributes")]
     public FireMode FireMode = FireMode.FullAuto;
@@ -43,14 +48,24 @@ public class WeaponBase : MonoBehaviour
 
         // Wait until weapon can fire (draw animation)
         Invoke("EnableWeapon", 1f);
+
+        UpdateTexts();
     }
 
-    void EnableWeapon()
+    public void UpdateTexts()
+    {
+        WeaponNameText.text = GetWeaponName();
+        AmmoText.text = "Ammo: " + BulletsInClip + " / " + BulletsLeft;
+    }
+
+    protected abstract string GetWeaponName();
+
+    private void EnableWeapon()
     {
         canShoot = true;
     }
 
-    void Update()
+    private void Update()
     {
         if(FireMode == FireMode.FullAuto && Input.GetButton("Fire1"))
         {
@@ -84,7 +99,7 @@ public class WeaponBase : MonoBehaviour
         }
     }
 
-    void Fire()
+    private void Fire()
     {
         audioSource.PlayOneShot(FireSound);
         fireLock = true;
@@ -97,6 +112,7 @@ public class WeaponBase : MonoBehaviour
         PlayFireAnimation();
 
         BulletsInClip--;
+        UpdateTexts();
 
         StartCoroutine(ResetFireLock());
     }
@@ -133,7 +149,7 @@ public class WeaponBase : MonoBehaviour
         animator.CrossFadeInFixedTime("Fire", 0.1f);
     }
 
-    void DryFire()
+    private void DryFire()
     {
         audioSource.PlayOneShot(DryFireSound);
         fireLock = true;
@@ -141,7 +157,7 @@ public class WeaponBase : MonoBehaviour
         StartCoroutine(ResetFireLock());
     }
 
-    void CheckReload()
+    private void CheckReload()
     {
         if(BulletsLeft > 0 && BulletsInClip < ClipSize)
         {
@@ -160,13 +176,15 @@ public class WeaponBase : MonoBehaviour
         animator.CrossFadeInFixedTime("Reload", 0.1f);
     }
 
-    void ReloadAmmo()
+    private void ReloadAmmo()
     {
         int bulletsToLoad = ClipSize - BulletsInClip;
         int bulletsToSubtract = (BulletsLeft >= bulletsToLoad) ? bulletsToLoad : BulletsLeft;
 
         BulletsLeft -= bulletsToSubtract;
         BulletsInClip += bulletsToSubtract;
+
+        UpdateTexts();
     }
 
     public void OnDraw()
@@ -191,7 +209,7 @@ public class WeaponBase : MonoBehaviour
         Invoke("ResetIsReloading", 1f);
     }
 
-    void ResetIsReloading()
+    private void ResetIsReloading()
     {
         isReloading = false;
     }

@@ -38,7 +38,9 @@ public class WeaponManager : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        transform.Find(weapons[currentWeaponIndex].ToString()).gameObject.SetActive(true);
+        var weapon = transform.Find(weapons[currentWeaponIndex].ToString()).gameObject;
+        weapon.SetActive(true);
+        weapon.GetComponent<WeaponBase>().UpdateTexts();
     }
 
     private void CheckWeaponSwitch()

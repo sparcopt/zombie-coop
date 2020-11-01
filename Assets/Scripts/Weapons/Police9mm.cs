@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SlideStopWeapon : WeaponBase
+public class Police9mm : WeaponBase
 {
+    private const string weaponName = "Police 9mm";
     public override void PlayFireAnimation()
     {
         if(BulletsInClip > 1)
@@ -14,5 +11,10 @@ public class SlideStopWeapon : WeaponBase
         {
             animator.CrossFadeInFixedTime("FireLast", 0.1f);
         }
+    }
+
+    protected override string GetWeaponName()
+    {
+        return weaponName;
     }
 }

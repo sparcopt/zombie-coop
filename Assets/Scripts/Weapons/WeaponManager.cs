@@ -7,7 +7,7 @@ public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager instance;
     private int currentWeaponIndex = 0;
-    private Weapon[] weapons = { Weapon.Police9mm, Weapon.PortableMagnum };
+    private Weapon[] weapons = { Weapon.Police9mm, Weapon.PortableMagnum, Weapon.Compact9mm };
 
     void Awake()
     {
@@ -90,5 +90,6 @@ public class WeaponManager : MonoBehaviour
 public enum Weapon
 {
     Police9mm,
-    PortableMagnum
+    PortableMagnum,
+    Compact9mm
 }

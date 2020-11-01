@@ -1,144 +1,410 @@
 fileFormatVersion: 2
 guid: 435f79d47ef939a438a39aec6de1d226
-timeCreated: 1521169516
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: Bolt
-    100002: Bolt_end
-    100004: //RootNode
-    100006: FPSHand
-    100008: Gun
-    100010: hand_l
-    100012: hand_r
-    100014: Hands2
-    100016: ik_l_001
-    100018: ik_r_001
-    100020: index_01_l
-    100022: index_01_r
-    100024: index_02_l
-    100026: index_02_r
-    100028: index_03_l
-    100030: index_03_l_end
-    100032: index_03_r
-    100034: index_03_r_end
-    100036: lowerarm_l
-    100038: lowerarm_l_end
-    100040: lowerarm_r
-    100042: lowerarm_r_end
-    100044: Mag
-    100046: Mag_end
-    100048: middle_01_l
-    100050: middle_01_r
-    100052: middle_02_l
-    100054: middle_02_r
-    100056: middle_03_l
-    100058: middle_03_l_end
-    100060: middle_03_r
-    100062: middle_03_r_end
-    100064: MP5K
-    100066: pinky_01_l
-    100068: pinky_01_r
-    100070: pinky_02_l
-    100072: pinky_02_r
-    100074: pinky_03_l
-    100076: pinky_03_l_end
-    100078: pinky_03_r
-    100080: pinky_03_r_end
-    100082: ring_01_l
-    100084: ring_01_r
-    100086: ring_02_l
-    100088: ring_02_r
-    100090: ring_03_l
-    100092: ring_03_l_end
-    100094: ring_03_r
-    100096: ring_03_r_end
-    100098: thumb_01_l
-    100100: thumb_01_r
-    100102: thumb_02_l
-    100104: thumb_02_r
-    100106: thumb_03_l
-    100108: thumb_03_l_end
-    100110: thumb_03_r
-    100112: thumb_03_r_end
-    100114: Trigger
-    100116: Trigger_end
-    100118: upperarm_l
-    100120: upperarm_r
-    400000: Bolt
-    400002: Bolt_end
-    400004: //RootNode
-    400006: FPSHand
-    400008: Gun
-    400010: hand_l
-    400012: hand_r
-    400014: Hands2
-    400016: ik_l_001
-    400018: ik_r_001
-    400020: index_01_l
-    400022: index_01_r
-    400024: index_02_l
-    400026: index_02_r
-    400028: index_03_l
-    400030: index_03_l_end
-    400032: index_03_r
-    400034: index_03_r_end
-    400036: lowerarm_l
-    400038: lowerarm_l_end
-    400040: lowerarm_r
-    400042: lowerarm_r_end
-    400044: Mag
-    400046: Mag_end
-    400048: middle_01_l
-    400050: middle_01_r
-    400052: middle_02_l
-    400054: middle_02_r
-    400056: middle_03_l
-    400058: middle_03_l_end
-    400060: middle_03_r
-    400062: middle_03_r_end
-    400064: MP5K
-    400066: pinky_01_l
-    400068: pinky_01_r
-    400070: pinky_02_l
-    400072: pinky_02_r
-    400074: pinky_03_l
-    400076: pinky_03_l_end
-    400078: pinky_03_r
-    400080: pinky_03_r_end
-    400082: ring_01_l
-    400084: ring_01_r
-    400086: ring_02_l
-    400088: ring_02_r
-    400090: ring_03_l
-    400092: ring_03_l_end
-    400094: ring_03_r
-    400096: ring_03_r_end
-    400098: thumb_01_l
-    400100: thumb_01_r
-    400102: thumb_02_l
-    400104: thumb_02_r
-    400106: thumb_03_l
-    400108: thumb_03_l_end
-    400110: thumb_03_r
-    400112: thumb_03_r_end
-    400114: Trigger
-    400116: Trigger_end
-    400118: upperarm_l
-    400120: upperarm_r
-    2100000: wire_000000000
-    2100002: Healthmale_Body_Old_caucasian_male_detailed.001
-    4300000: MP5K
-    4300002: Hands2
-    7400000: Default
-    7400002: Draw
-    7400004: Fire
-    7400006: Reload
-    7400008: Stand
-    9500000: //RootNode
-    13700000: Hands2
-    13700002: MP5K
+  serializedVersion: 20101
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bolt
+  - first:
+      1: 100002
+    second: Bolt_end
+  - first:
+      1: 100004
+    second: //RootNode
+  - first:
+      1: 100006
+    second: FPSHand
+  - first:
+      1: 100008
+    second: Gun
+  - first:
+      1: 100010
+    second: hand_l
+  - first:
+      1: 100012
+    second: hand_r
+  - first:
+      1: 100014
+    second: Hands2
+  - first:
+      1: 100016
+    second: ik_l_001
+  - first:
+      1: 100018
+    second: ik_r_001
+  - first:
+      1: 100020
+    second: index_01_l
+  - first:
+      1: 100022
+    second: index_01_r
+  - first:
+      1: 100024
+    second: index_02_l
+  - first:
+      1: 100026
+    second: index_02_r
+  - first:
+      1: 100028
+    second: index_03_l
+  - first:
+      1: 100030
+    second: index_03_l_end
+  - first:
+      1: 100032
+    second: index_03_r
+  - first:
+      1: 100034
+    second: index_03_r_end
+  - first:
+      1: 100036
+    second: lowerarm_l
+  - first:
+      1: 100038
+    second: lowerarm_l_end
+  - first:
+      1: 100040
+    second: lowerarm_r
+  - first:
+      1: 100042
+    second: lowerarm_r_end
+  - first:
+      1: 100044
+    second: Mag
+  - first:
+      1: 100046
+    second: Mag_end
+  - first:
+      1: 100048
+    second: middle_01_l
+  - first:
+      1: 100050
+    second: middle_01_r
+  - first:
+      1: 100052
+    second: middle_02_l
+  - first:
+      1: 100054
+    second: middle_02_r
+  - first:
+      1: 100056
+    second: middle_03_l
+  - first:
+      1: 100058
+    second: middle_03_l_end
+  - first:
+      1: 100060
+    second: middle_03_r
+  - first:
+      1: 100062
+    second: middle_03_r_end
+  - first:
+      1: 100064
+    second: MP5K
+  - first:
+      1: 100066
+    second: pinky_01_l
+  - first:
+      1: 100068
+    second: pinky_01_r
+  - first:
+      1: 100070
+    second: pinky_02_l
+  - first:
+      1: 100072
+    second: pinky_02_r
+  - first:
+      1: 100074
+    second: pinky_03_l
+  - first:
+      1: 100076
+    second: pinky_03_l_end
+  - first:
+      1: 100078
+    second: pinky_03_r
+  - first:
+      1: 100080
+    second: pinky_03_r_end
+  - first:
+      1: 100082
+    second: ring_01_l
+  - first:
+      1: 100084
+    second: ring_01_r
+  - first:
+      1: 100086
+    second: ring_02_l
+  - first:
+      1: 100088
+    second: ring_02_r
+  - first:
+      1: 100090
+    second: ring_03_l
+  - first:
+      1: 100092
+    second: ring_03_l_end
+  - first:
+      1: 100094
+    second: ring_03_r
+  - first:
+      1: 100096
+    second: ring_03_r_end
+  - first:
+      1: 100098
+    second: thumb_01_l
+  - first:
+      1: 100100
+    second: thumb_01_r
+  - first:
+      1: 100102
+    second: thumb_02_l
+  - first:
+      1: 100104
+    second: thumb_02_r
+  - first:
+      1: 100106
+    second: thumb_03_l
+  - first:
+      1: 100108
+    second: thumb_03_l_end
+  - first:
+      1: 100110
+    second: thumb_03_r
+  - first:
+      1: 100112
+    second: thumb_03_r_end
+  - first:
+      1: 100114
+    second: Trigger
+  - first:
+      1: 100116
+    second: Trigger_end
+  - first:
+      1: 100118
+    second: upperarm_l
+  - first:
+      1: 100120
+    second: upperarm_r
+  - first:
+      4: 400000
+    second: Bolt
+  - first:
+      4: 400002
+    second: Bolt_end
+  - first:
+      4: 400004
+    second: //RootNode
+  - first:
+      4: 400006
+    second: FPSHand
+  - first:
+      4: 400008
+    second: Gun
+  - first:
+      4: 400010
+    second: hand_l
+  - first:
+      4: 400012
+    second: hand_r
+  - first:
+      4: 400014
+    second: Hands2
+  - first:
+      4: 400016
+    second: ik_l_001
+  - first:
+      4: 400018
+    second: ik_r_001
+  - first:
+      4: 400020
+    second: index_01_l
+  - first:
+      4: 400022
+    second: index_01_r
+  - first:
+      4: 400024
+    second: index_02_l
+  - first:
+      4: 400026
+    second: index_02_r
+  - first:
+      4: 400028
+    second: index_03_l
+  - first:
+      4: 400030
+    second: index_03_l_end
+  - first:
+      4: 400032
+    second: index_03_r
+  - first:
+      4: 400034
+    second: index_03_r_end
+  - first:
+      4: 400036
+    second: lowerarm_l
+  - first:
+      4: 400038
+    second: lowerarm_l_end
+  - first:
+      4: 400040
+    second: lowerarm_r
+  - first:
+      4: 400042
+    second: lowerarm_r_end
+  - first:
+      4: 400044
+    second: Mag
+  - first:
+      4: 400046
+    second: Mag_end
+  - first:
+      4: 400048
+    second: middle_01_l
+  - first:
+      4: 400050
+    second: middle_01_r
+  - first:
+      4: 400052
+    second: middle_02_l
+  - first:
+      4: 400054
+    second: middle_02_r
+  - first:
+      4: 400056
+    second: middle_03_l
+  - first:
+      4: 400058
+    second: middle_03_l_end
+  - first:
+      4: 400060
+    second: middle_03_r
+  - first:
+      4: 400062
+    second: middle_03_r_end
+  - first:
+      4: 400064
+    second: MP5K
+  - first:
+      4: 400066
+    second: pinky_01_l
+  - first:
+      4: 400068
+    second: pinky_01_r
+  - first:
+      4: 400070
+    second: pinky_02_l
+  - first:
+      4: 400072
+    second: pinky_02_r
+  - first:
+      4: 400074
+    second: pinky_03_l
+  - first:
+      4: 400076
+    second: pinky_03_l_end
+  - first:
+      4: 400078
+    second: pinky_03_r
+  - first:
+      4: 400080
+    second: pinky_03_r_end
+  - first:
+      4: 400082
+    second: ring_01_l
+  - first:
+      4: 400084
+    second: ring_01_r
+  - first:
+      4: 400086
+    second: ring_02_l
+  - first:
+      4: 400088
+    second: ring_02_r
+  - first:
+      4: 400090
+    second: ring_03_l
+  - first:
+      4: 400092
+    second: ring_03_l_end
+  - first:
+      4: 400094
+    second: ring_03_r
+  - first:
+      4: 400096
+    second: ring_03_r_end
+  - first:
+      4: 400098
+    second: thumb_01_l
+  - first:
+      4: 400100
+    second: thumb_01_r
+  - first:
+      4: 400102
+    second: thumb_02_l
+  - first:
+      4: 400104
+    second: thumb_02_r
+  - first:
+      4: 400106
+    second: thumb_03_l
+  - first:
+      4: 400108
+    second: thumb_03_l_end
+  - first:
+      4: 400110
+    second: thumb_03_r
+  - first:
+      4: 400112
+    second: thumb_03_r_end
+  - first:
+      4: 400114
+    second: Trigger
+  - first:
+      4: 400116
+    second: Trigger_end
+  - first:
+      4: 400118
+    second: upperarm_l
+  - first:
+      4: 400120
+    second: upperarm_r
+  - first:
+      21: 2100000
+    second: wire_000000000
+  - first:
+      21: 2100002
+    second: Healthmale_Body_Old_caucasian_male_detailed.001
+  - first:
+      43: 4300000
+    second: MP5K
+  - first:
+      43: 4300002
+    second: Hands2
+  - first:
+      74: 7400000
+    second: Default
+  - first:
+      74: 7400002
+    second: Draw
+  - first:
+      74: 7400004
+    second: Fire
+  - first:
+      74: 7400006
+    second: Reload
+  - first:
+      74: 7400008
+    second: Stand
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Hands2
+  - first:
+      137: 13700002
+    second: MP5K
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -146,7 +412,7 @@ ModelImporter:
       name: Healthmale_Body_Old_caucasian_male_detailed.001
     second: {fileID: 2100000, guid: e4b7a255d9b08364fa58f08facc2a975, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -163,6 +429,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -174,6 +441,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Default
       takeName: FPSHand|Default
+      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -202,6 +470,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Draw
       takeName: FPSHand|Draw
+      internalID: 0
       firstFrame: 0
       lastFrame: 32
       wrapMode: 0
@@ -222,7 +491,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.41707316
+        functionName: OnDraw
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -230,6 +506,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Fire
       takeName: FPSHand|Fire
+      internalID: 0
       firstFrame: 0
       lastFrame: 9
       wrapMode: 0
@@ -258,6 +535,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Reload
       takeName: FPSHand|Reload
+      internalID: 0
       firstFrame: 0
       lastFrame: 79
       wrapMode: 0
@@ -278,7 +556,28 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.16829269
+        functionName: OnMagOut
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5804878
+        functionName: OnMagIn
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8146341
+        functionName: OnBoltForwarded
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -286,6 +585,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Stand
       takeName: FPSHand|Stand
+      internalID: 0
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -317,21 +617,31 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -339,10 +649,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -352,14 +665,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -10,6 +10,7 @@ public abstract class WeaponBase : MonoBehaviour
     protected AudioSource audioSource;
     protected Animator animator;
     protected FirstPersonController controller;
+    protected CashSystem CashSystem;
     protected bool fireLock = false;
     protected bool canShoot = false;
     protected bool isReloading = false;
@@ -45,9 +46,12 @@ public abstract class WeaponBase : MonoBehaviour
 
     void Start()
     {
-        controller = GameObject.Find("Player").GetComponent<FirstPersonController>();
+        var player = GameObject.Find("Player"); 
+
+        controller = player.GetComponent<FirstPersonController>();
         audioSource = GetComponent<AudioSource>();   
         animator = GetComponent<Animator>();
+        CashSystem = player.GetComponent<CashSystem>();
 
         BulletsInClip = ClipSize;
         BulletsLeft = MaxAmmo;
@@ -137,15 +141,37 @@ public abstract class WeaponBase : MonoBehaviour
         {
             if (hit.transform.CompareTag("Enemy"))
             {
-                var health = hit.transform.GetComponent<Health>();
+                var targetHealth = hit.transform.GetComponent<Health>();
 
-                if (health == null)
+                if (targetHealth == null)
                 {
                     throw new Exception("Cannot find health component on enemy");
                 }
 
-                health.TakeDamage(Damage);
+                targetHealth.TakeDamage(Damage);
                 CreateBlood(hit.point, hit.transform.rotation);
+
+                // Begin of Messy logic because of the head health
+                Transform targetTransform;
+                float targetHealthValue;
+
+                if(targetHealth.ParentRef == null)
+                {
+                    targetTransform = hit.transform;
+                    targetHealthValue = targetHealth.HealthValue;
+                }
+                else
+                {
+                    targetTransform = targetHealth.ParentRef.transform;
+                    targetHealthValue = targetHealth.ParentRef.HealthValue;
+                }
+                // End of Messy logic because of the head health
+
+                if(targetHealthValue <= 0)
+                {
+                    var killReward = targetTransform.GetComponent<KillReward>();
+                    CashSystem.Cash += killReward.Amount;
+                }
             }
             else
             {

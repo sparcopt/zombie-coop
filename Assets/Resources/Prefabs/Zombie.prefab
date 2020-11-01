@@ -1811,6 +1811,9 @@ MonoBehaviour:
   HealthValue: 100
   ParentRef: {fileID: 6269498953770166061}
   DamageMultiplier: 2
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5721837334665668846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,6 +2518,7 @@ GameObject:
   - component: {fileID: 6269498953770166032}
   - component: {fileID: 6269498953770166033}
   - component: {fileID: 6269498953770166061}
+  - component: {fileID: -7997712268015557336}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -2599,6 +2603,7 @@ MonoBehaviour:
   Speed: 1
   AngularSpeed: 120
   Damage: 20
+  AttackAngle: 45
 --- !u!195 &6269498953770166033
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2636,6 +2641,22 @@ MonoBehaviour:
   HealthValue: 100
   ParentRef: {fileID: 0}
   DamageMultiplier: 1
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-7997712268015557336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591991024196649734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0763827e58c1a4eb4556e3c7c04bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Amount: 10
 --- !u!1 &7720678754118114199
 GameObject:
   m_ObjectHideFlags: 0

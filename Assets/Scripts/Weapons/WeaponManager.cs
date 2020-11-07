@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager instance;
     private int currentWeaponIndex = 0;
-    private Weapon[] weapons = { Weapon.Police9mm, Weapon.PortableMagnum, Weapon.Compact9mm };
+    private Weapon primaryWeapon = Weapon.PortableMagnum;
+    private Weapon secondaryWeapon = Weapon.Police9mm;
+    private Weapon currentWeapon;
+    private GameObject primaryWeaponObj;
+    private GameObject secondaryWeaponObj;
+    private GameObject currentWeaponObj;
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -21,69 +23,46 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        SwitchToCurrentWeapon();
+        currentWeapon = secondaryWeapon;
+        primaryWeaponObj = FindWeaponObject(primaryWeapon);
+        secondaryWeaponObj = FindWeaponObject(secondaryWeapon);
+
+        currentWeaponObj = secondaryWeaponObj;
+        
+        SelectCurrentWeapon();
     }
 
-    void Update()
+    private GameObject FindWeaponObject(Weapon weapon)
     {
-        CheckWeaponSwitch();
+        return transform.Find(weapon.ToString()).gameObject;
     }
-
-    void SwitchToCurrentWeapon()
+    
+    private void SelectCurrentWeapon()
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(false);
-        }
-
-        var weapon = transform.Find(weapons[currentWeaponIndex].ToString()).gameObject;
-        weapon.SetActive(true);
-        weapon.GetComponent<WeaponBase>().Select();
+        currentWeaponObj.SetActive(true);
+        currentWeaponObj.GetComponent<WeaponBase>().Select();
     }
-
-    private void CheckWeaponSwitch()
+    
+    private void Update()
     {
-        float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
-
-        // Forward
-        if (mouseWheel > 0)
+        if (primaryWeapon != null && currentWeapon != primaryWeapon && Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SelectPreviousWeapon();
+            currentWeapon = primaryWeapon;
+            currentWeaponObj = primaryWeaponObj;
+            
+            secondaryWeaponObj.SetActive(false);
+            SelectCurrentWeapon();
         }
-        else if (mouseWheel < 0)
+        else if (secondaryWeapon != null && currentWeapon != secondaryWeapon && Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SelectNextWeapon();
+            currentWeapon = secondaryWeapon;
+            currentWeaponObj = secondaryWeaponObj;
+            
+            primaryWeaponObj.SetActive(false);
+            SelectCurrentWeapon();
         }
-    }
-
-    private void SelectPreviousWeapon()
-    {
-        if (currentWeaponIndex == 0)
-        {
-            currentWeaponIndex = weapons.Length - 1;
-        }
-        else
-        {
-            currentWeaponIndex--;
-        }
-
-        SwitchToCurrentWeapon();
-    }
-
-    private void SelectNextWeapon()
-    {
-        if (currentWeaponIndex >= (weapons.Length - 1))
-        {
-            currentWeaponIndex = 0;
-        }
-        else
-        {
-            currentWeaponIndex++;
-        }
-
-        SwitchToCurrentWeapon();
     }
 }
 

@@ -59,6 +59,7 @@
           <e p="CashSystem.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="Health.cs" t="Include" />
           <e p="HealthUI.cs" t="Include" />
           <e p="KillReward.cs" t="Include" />

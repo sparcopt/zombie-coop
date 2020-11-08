@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
     public float AngularSpeed = 120;
     public float Damage = 20;
     public float AttackAngle = 45f;
+    [HideInInspector] public UnityEvent OnDead;
 
     void Start()
     {
@@ -111,6 +113,8 @@ public class Enemy : MonoBehaviour
 
         if (health.HealthValue <= 0)
         {
+            OnDead.Invoke();
+            
             isDead = true;
             agent.isStopped = true;
             collider.enabled = false;

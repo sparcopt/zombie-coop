@@ -69,6 +69,12 @@
             <e p="ShopBase.cs" t="Include" />
             <e p="ShopDetector.cs" t="Include" />
           </e>
+          <e p="UI" t="Include">
+            <e p="OptionsView.cs" t="Include" />
+            <e p="StartView.cs" t="Include" />
+            <e p="ViewBase.cs" t="Include" />
+            <e p="ViewInitializer.cs" t="Include" />
+          </e>
           <e p="WeaponBob.cs" t="Include" />
           <e p="Weapons" t="Include">
             <e p="Compact9mm.cs" t="Include" />

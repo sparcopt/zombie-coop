@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         // TODO: this is heavy, look for a way of caching this
-        target = GameObject.Find("Player");
+        target = GameObject.FindGameObjectWithTag("Player");
         targetHealth = target.GetComponent<Health>();
 
         if (targetHealth == null)

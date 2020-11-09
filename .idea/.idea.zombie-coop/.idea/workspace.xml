@@ -20,17 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7704157e-34d6-4b00-bd61-ca272121f152" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/OptionsView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/OptionsView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ViewBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ViewBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ViewInitializer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ViewInitializer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.zombie-coop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zombie-coop/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animations/UI/ResetDeath.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animations/UI/ResetDeath.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.zombie-coop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.zombie-coop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/UI/Death.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/UI/Death.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CashSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CashSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HealthUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HealthUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Shops/ShopDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Shops/ShopDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StartView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +45,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Git/sparcopt/zombie-coop/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ViewBase.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -49,15 +52,19 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Shops/ShopBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shops/AmmoShop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Shops/ShopDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/OptionsView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/ViewInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/ViewBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CashSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shops/ShopDetector.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HealthUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -106,7 +113,10 @@
       <updated>1604769967098</updated>
       <workItem from="1604769977851" duration="269000" />
       <workItem from="1604780380119" duration="3868000" />
-      <workItem from="1604791248391" duration="6667000" />
+      <workItem from="1604791248391" duration="7007000" />
+      <workItem from="1604853040025" duration="4098000" />
+      <workItem from="1604857392233" duration="245000" />
+      <workItem from="1604881443207" duration="3439000" />
     </task>
     <task id="LOCAL-00001" summary="Add ammo shop foundations">
       <created>1604782239698</created>
@@ -129,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604797200668</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add main menu">
+      <created>1604801214753</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604801214753</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +199,17 @@
     <MESSAGE value="Add ammo shop foundations" />
     <MESSAGE value="Set weapon change to key strokes" />
     <MESSAGE value="Add game manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add game manager" />
+    <MESSAGE value="Add main menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add main menu" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604801227042">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1604801227042" />
+    <state x="923" y="299" width="714" height="801" key="find.popup" timestamp="1604856617982">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="923" y="299" width="714" height="801" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1604856617982" />
   </component>
 </project>

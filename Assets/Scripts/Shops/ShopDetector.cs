@@ -6,6 +6,13 @@ public class ShopDetector : MonoBehaviour
     public Transform ShootPoint;
     public float DetectRange = 2f;
     public Text ShopText;
+
+    private void Start()
+    {
+        var inGameUITransform = GameObject.Find("/Canvas/InGame").transform;
+        ShopText = inGameUITransform.Find("ShopText").GetComponent<Text>();
+    }
+    
     private void Update()
     {
         if (Physics.Raycast(ShootPoint.position, ShootPoint.forward, out var hit, DetectRange))

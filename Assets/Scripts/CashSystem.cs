@@ -20,6 +20,9 @@ public class CashSystem : MonoBehaviour
 
     void Start()
     {
+        var inGameUITransform = GameObject.Find("/Canvas/InGame").transform;
+        CashText = inGameUITransform.Find("Cash").GetComponent<Text>();
+        
         cash = InitialCash;
     }
 

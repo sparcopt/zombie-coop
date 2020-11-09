@@ -46,7 +46,11 @@ public abstract class WeaponBase : MonoBehaviour
 
     void Start()
     {
-        var player = GameObject.Find("Player"); 
+        var inGameUITransform = GameObject.Find("/Canvas/InGame").transform;
+        WeaponNameText = inGameUITransform.Find("WeaponNameText").GetComponent<Text>();
+        AmmoText = inGameUITransform.Find("AmmoText").GetComponent<Text>();
+        
+        var player = GameObject.FindGameObjectWithTag("Player"); 
 
         controller = player.GetComponent<FirstPersonController>();
         audioSource = GetComponent<AudioSource>();   
@@ -58,8 +62,6 @@ public abstract class WeaponBase : MonoBehaviour
 
         // Wait until weapon can fire (draw animation)
         Invoke("EnableWeapon", 1f);
-
-        UpdateTexts();
     }
 
     public void UpdateTexts()
@@ -95,7 +97,7 @@ public abstract class WeaponBase : MonoBehaviour
     public void Select()
     {
         isReloading = false;
-        UpdateTexts();
+        Invoke("UpdateTexts", Time.deltaTime);
     }
 
     private void CheckFire()

@@ -8,7 +8,8 @@ public class StartView : ViewBase
     [Header("View Refs")]
     public ViewBase OptionsView;
     public GameObject LobbyCam;
-    public GameObject Player;
+    public GameObject MainUI;
+    public GameObject InGameUI;
     public Button StartButton;
     public Button OptionsButton;
     public Button ExitButton;
@@ -17,7 +18,12 @@ public class StartView : ViewBase
     {
         StartButton.onClick.AddListener(() =>
         {
-            print("START");
+            LobbyCam.SetActive(false);
+            MainUI.SetActive(false);
+            
+            InGameUI.SetActive(true);
+            
+            GameManager.Instance.StartGame();
         });
         
         OptionsButton.onClick.AddListener(() =>
@@ -27,5 +33,12 @@ public class StartView : ViewBase
         });
         
         ExitButton.onClick.AddListener(Application.Quit);
+    }
+
+    protected override void OnShow()
+    {
+        LobbyCam.SetActive(true);
+        MainUI.SetActive(true);
+        InGameUI.SetActive(false);
     }
 }

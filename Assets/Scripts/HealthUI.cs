@@ -11,6 +11,10 @@ public class HealthUI : MonoBehaviour
 
     void Start()
     {
+        var inGameUITransform = GameObject.Find("/Canvas/InGame").transform;
+        HealthText = inGameUITransform.Find("Health").GetComponent<Text>();
+        HitAnimator = inGameUITransform.Find("Hit").GetComponent<Animator>();
+        
         health = GetComponent<Health>();
         health.OnHit.AddListener(() =>
         {
